@@ -1,5 +1,4 @@
 #include "sort.h"
-#include <stdio.h>
 
 /**
  * knuth_max_gap - gets the max gap according the Knuth sequence

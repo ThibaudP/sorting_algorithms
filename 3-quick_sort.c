@@ -31,7 +31,7 @@ void swap_values(int **array, ssize_t i1, ssize_t i2)
  */
 size_t partition(int *array, ssize_t lo, ssize_t hi, size_t size)
 {
-	int pivot, tmp;
+	int pivot;
 	ssize_t i, j;
 
 	pivot = array[hi];

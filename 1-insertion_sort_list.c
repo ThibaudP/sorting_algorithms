@@ -14,7 +14,7 @@ void insertion_sort_list(listint_t **list)
 
 	if (list == NULL || *list == NULL)
 		return;
-	
+
 	n1 = (*list)->next;
 
 	while (n1 != NULL)
@@ -26,7 +26,7 @@ void insertion_sort_list(listint_t **list)
 			print_list(*list);
 		}
 		n1 = n2;
-	}	
+	}
 }
 
 /**
@@ -42,11 +42,11 @@ void swap_with_prev(listint_t **list, listint_t *node)
 
 	if (node->next)
 		node->next->prev = node->prev;
-	
+
 	node->next = node->prev;
 	node->prev = node->next->prev;
 	node->next->prev = node;
-	
+
 	if (!node->prev)
 		*list = node;
 	else

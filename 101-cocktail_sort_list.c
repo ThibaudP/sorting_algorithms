@@ -23,6 +23,26 @@ void swap_next(listint_t **list, listint_t *node)
 		node->next->prev = node;
 }
 
+/**
+ * listint_len - returns the length of a linked list
+ *
+ * @h: head node to the list
+ *
+ * Return: the size of the list
+ */
+
+size_t listint_len(const listint_t *h)
+{
+	size_t cnt = 0;
+
+	while (h != NULL)
+	{
+		cnt++;
+		h = h->next;
+	}
+
+	return (cnt);
+}
 
 /**
  * cocktail_sort_list - sorts a list with cocktail shaker
@@ -33,17 +53,21 @@ void swap_next(listint_t **list, listint_t *node)
 void cocktail_sort_list(listint_t **list)
 {
 	int swapped = 1;
+	size_t lo, hi, i;
 	listint_t *tmp;
 
 	if (!list || !(*list))
 		return;
 	
-	tmp = *list;	
+	tmp = *list;
+	i = 0;
+	lo = 0;
+	hi = (listint_len(*list) - 1);
 
-	while (swapped != 0)
+	while (swapped)
 	{
 		swapped = 0;
-		while (tmp->next)
+		while (i < hi)
 		{
 			if (tmp->next->n < tmp->n)
 			{
@@ -53,12 +77,14 @@ void cocktail_sort_list(listint_t **list)
 			}
 			else
 				tmp = tmp->next;
+			i++;
+			/* printf("i: %ld lo: %ld hi: %ld\n", i, lo, hi); */
 		}
 		if (!swapped)
 			break;
 
 		swapped = 0;
-		while (tmp->prev)
+		while (i > lo)
 		{
 			if (tmp->prev->n > tmp->n)
 			{
@@ -68,6 +94,10 @@ void cocktail_sort_list(listint_t **list)
 			}
 			else
 				tmp = tmp->prev;
+			i--;
+			/* printf("i: %ld lo: %ld hi: %ld\n", i, lo, hi); */
 		}	
+		hi -= 1;
+		lo += 1;
 	}
 }

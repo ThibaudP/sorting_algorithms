@@ -23,6 +23,5 @@ void print_list(const listint_t *list);
 /* INSERTION SORT */
 
 void insertion_sort_list(listint_t **list);
-void swap_with_prev(listint_t **list, listint_t *node);
 
 #endif /* SORT_H */

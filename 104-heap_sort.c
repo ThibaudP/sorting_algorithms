@@ -19,6 +19,15 @@ void swap_values(int **array, ssize_t i1, ssize_t i2)
 	(*array)[i2] = tmp;
 }
 
+/**
+ * heap_sort_sift_down - applies the sift down method to the array
+ *
+ * @array: the array of ints
+ * @size: size of the array
+ * @start: wanted start index
+ * @end: wanted end index
+ */
+
 void heap_sort_sift_down(int *array, size_t size, size_t start, size_t end)
 {
 	size_t root = start, child, swap;
@@ -33,7 +42,9 @@ void heap_sort_sift_down(int *array, size_t size, size_t start, size_t end)
 		if (child + 1 <= end && array[swap] < array[child + 1])
 			swap = child + 1;
 		if (swap == root)
+		{
 			return;
+		}
 		else
 		{
 			swap_values(&array, root, swap);

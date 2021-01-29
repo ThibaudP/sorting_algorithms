@@ -2,8 +2,10 @@
 
 /**
  * knuth_max_gap - gets the max gap according the Knuth sequence
- * 
+ *
  * @size: the size of the array
+ *
+ * Return: the max gap
  */
 
 size_t knuth_max_gap(size_t size)
@@ -13,7 +15,7 @@ size_t knuth_max_gap(size_t size)
 	while (gap < size / 3)
 		gap = gap * 3 + 1;
 
-	return gap;
+	return (gap);
 }
 
 /**
@@ -27,7 +29,7 @@ void shell_sort(int *array, size_t size)
 {
 	size_t gap = 0, i, j;
 	int tmp;
-	
+
 	gap = knuth_max_gap(size);
 	while (gap > 0)
 	{

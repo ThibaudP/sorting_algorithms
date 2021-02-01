@@ -51,7 +51,7 @@ void counting_sort(int *array, size_t size)
 
 		print_array(count, k + 1);
 
-		output = int_array_init(size);
+		output = malloc(sizeof(int) * size);
 		if (output)
 		{
 			/* Moving each item into its sorted position in the output array */

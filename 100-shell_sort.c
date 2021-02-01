@@ -12,8 +12,10 @@ size_t knuth_max_gap(size_t size)
 {
 	size_t gap = 1;
 
-	while (gap < size / 3)
+	while (gap < size)
 		gap = gap * 3 + 1;
+	if (gap >= size)
+		gap = (gap - 1) / 3;
 
 	return (gap);
 }

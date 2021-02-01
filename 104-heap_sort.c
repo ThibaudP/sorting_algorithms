@@ -65,6 +65,9 @@ void heap_sort(int *array, size_t size)
 {
 	size_t end = size - 1, start;
 
+	if (size < 2)
+		return;
+
 	for (start = (size - 2) / 2; (int)start >= 0; start--)
 		heap_sort_sift_down(array, size, start, size - 1);
 

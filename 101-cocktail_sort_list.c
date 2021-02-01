@@ -53,16 +53,16 @@ size_t listint_len(const listint_t *h)
 void cocktail_sort_list(listint_t **list)
 {
 	int swapped = 1;
-	size_t lo = 0, hi = (listint_len(*list) - 1), i = 0;
+	size_t lo = 0, hi = (listint_len(*list) - 1);
 	listint_t *tmp;
 
-	if (!list || !(*list) || !(*list)->next || listint_len(*list) < 2)
+	if (!list || !(*list) || !(*list)->next)
 		return;
 	tmp = *list;
 	while (swapped)
 	{
 		swapped = 0;
-		for (; i < hi; i++)
+		while (tmp->next)
 		{
 			if (tmp->next->n < tmp->n)
 			{
@@ -76,7 +76,7 @@ void cocktail_sort_list(listint_t **list)
 		if (!swapped)
 			break;
 		swapped = 0;
-		for (; i > lo; i--)
+		while (tmp->prev)
 		{
 			if (tmp->prev->n > tmp->n)
 			{

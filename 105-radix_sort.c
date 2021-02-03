@@ -78,6 +78,9 @@ void radix_sort(int *array, size_t size)
 	int k = -1, exp;
 	size_t i;
 
+	if (size < 2)
+		return;
+
 	for (i = 0; i < size; i++)
 		k = array[i] > k ? array[i] : k;
 

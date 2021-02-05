@@ -38,13 +38,9 @@ size_t partition(int *array, ssize_t lo, ssize_t hi, size_t size)
 	while (lo <= hi)
 	{
 		while (array[lo] < pivot)
-		{
 			lo++;
-		}
 		while (array[hi] > pivot)
-		{
 			hi--;
-		}
 		if (lo <= hi)
 		{
 			if (lo != hi)
